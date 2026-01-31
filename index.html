@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PMLG Jakarta</title>
+<style>
+    body{
+        margin:0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background:#0f2e2c;
+        color:white;
+    }
+
+    .container{
+        display:flex;
+        height:100vh;
+    }
+
+    .left{
+        width:50%;
+        background:white;
+        color:#0f2e2c;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        padding:40px;
+    }
+
+    .left h1{
+        font-size:28px;
+        letter-spacing:2px;
+        margin-bottom:30px;
+        text-shadow:1px 1px 2px #aaa;
+    }
+
+    .left img{
+        width:380px;
+    }
+
+    .right{
+        width:50%;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        padding:80px;
+    }
+
+    .menu{
+        font-size:22px;
+        padding:25px 0;
+        border-bottom:1px solid rgba(255,255,255,0.3);
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    .menu:hover{
+        letter-spacing:2px;
+        color:#d2f3ef;
+    }
+
+    .content{
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background:#0f2e2c;
+        display:none;
+        padding:60px;
+        overflow:auto;
+    }
+
+    .content h2{
+        margin-top:0;
+        font-size:30px;
+        border-bottom:1px solid white;
+        padding-bottom:10px;
+    }
+
+    .back{
+        margin-top:30px;
+        display:inline-block;
+        padding:10px 20px;
+        border:1px solid white;
+        cursor:pointer;
+    }
+
+    @media(max-width:900px){
+        .container{flex-direction:column;}
+        .left, .right{width:100%;}
+        .left img{width:250px;}
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="left">
+        <h1>
+            Perkumpulan Marga Lumban Gaol<br>
+            dan Boru di Jakarta dan sekitarnya
+        </h1>
+        <img src="logo.png" alt="Logo PMLG"/>
+    </div>
+
+    <div class="right">
+        <div class="menu" onclick="openPage('tentang')">Tentang PMLG & Pengurus</div>
+        <div class="menu" onclick="openPage('tarombo')">Tarombo</div>
+        <div class="menu" onclick="openPage('adat')">Adat Batak</div>
+        <div class="menu" onclick="openPage('kegiatan')">Informasi dan Kegiatan</div>
+        <div class="menu" onclick="openPage('kontak')">Kontak & Apresiasi</div>
+    </div>
+</div>
+
+<!-- HALAMAN ISI -->
+<div id="content" class="content">
+    <h2 id="title"></h2>
+    <div id="isi"></div>
+    <div class="back" onclick="closePage()">Kembali</div>
+</div>
+
+<script>
+function openPage(page){
+    const content = document.getElementById('content');
+    const title = document.getElementById('title');
+    const isi = document.getElementById('isi');
+
+    const data = {
+        tentang: {
+            title: "Tentang PMLG & Pengurus",
+            isi: "Isi profil perkumpulan, sejarah berdiri, dan daftar pengurus bisa ditaruh di sini."
+        },
+        tarombo: {
+            title: "Tarombo",
+            isi: "Isi tarombo marga Lumban Gaol di halaman ini."
+        },
+        adat: {
+            title: "Adat Batak",
+            isi: "Penjelasan adat istiadat Batak terkait marga Lumban Gaol."
+        },
+        kegiatan: {
+            title: "Informasi dan Kegiatan",
+            isi: "Dokumentasi kegiatan, pengumuman, dan acara komunitas."
+        },
+        kontak: {
+            title: "Kontak & Apresiasi",
+            isi: "Kontak pengurus, alamat, dan pesan apresiasi."
+        }
+    };
+
+    title.innerText = data[page].title;
+    isi.innerText = data[page].isi;
+    content.style.display = "block";
+}
+
+function closePage(){
+    document.getElementById('content').style.display = "none";
+}
+</script>
+
+</body>
+</html>
