@@ -3,107 +3,119 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>PMLG Jakarta</title>
+<title>Perkumpulan Marga Lumban Gaol Jakarta</title>
+
 <style>
-    body{
-        margin:0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background:#0f2e2c;
-        color:white;
-    }
+body{
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:#0f2e2c;
+    color:white;
+}
 
-    .container{
-        display:flex;
-        height:100vh;
-    }
+.container{
+    display:flex;
+    height:100vh;
+}
 
-    .left{
-        width:50%;
-        background:white;
-        color:#0f2e2c;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        text-align:center;
-        padding:40px;
-    }
+/* KIRI (dibesarkan) */
+.left{
+    width:65%;
+    background:white;
+    color:#0f2e2c;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;  /* ini kuncinya */
+    align-items:center;
+    text-align:center;
+    padding-top:10px;           /* atur posisi turun dikit */
+}
 
-    .left h1{
-        font-size:28px;
-        letter-spacing:2px;
-        margin-bottom:30px;
-        text-shadow:1px 1px 2px #aaa;
-    }
+.logo{
+    width:620px;
+    margin-bottom:0px;
+}
 
-    .left img{
-        width:380px;
-    }
+.title{
+    font-size:28px;
+    line-height:1.6;
+    letter-spacing:2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.25);
+    margin-top:0;      /* atur jarak ke logo */
+    margin-bottom:0;
+}
 
-    .right{
-        width:50%;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        padding:80px;
-    }
 
-    .menu{
-        font-size:22px;
-        padding:25px 0;
-        border-bottom:1px solid rgba(255,255,255,0.3);
-        cursor:pointer;
-        transition:0.3s;
-    }
+/* KANAN (diperkecil) */
+.right{
+    width:35%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:60px;
+}
 
-    .menu:hover{
-        letter-spacing:2px;
-        color:#d2f3ef;
-    }
+.menu{
+    font-size:18px;
+    padding:18px 0;
+    border-bottom:1px solid rgba(255,255,255,0.15);
+    cursor:pointer;
+    transition:0.3s;
+}
 
-    .content{
-        position:fixed;
-        top:0;
-        left:0;
-        width:100%;
-        height:100%;
-        background:#0f2e2c;
-        display:none;
-        padding:60px;
-        overflow:auto;
-    }
+.menu:hover{
+    letter-spacing:2px;
+    padding-left:10px;
+    color:#d2f3ef;
+}
 
-    .content h2{
-        margin-top:0;
-        font-size:30px;
-        border-bottom:1px solid white;
-        padding-bottom:10px;
-    }
+/* HALAMAN ISI */
+.content{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#0f2e2c;
+    display:none;
+    padding:60px;
+    overflow:auto;
+}
 
-    .back{
-        margin-top:30px;
-        display:inline-block;
-        padding:10px 20px;
-        border:1px solid white;
-        cursor:pointer;
-    }
+.content h2{
+    margin-top:0;
+    font-size:30px;
+    border-bottom:1px solid white;
+    padding-bottom:10px;
+}
 
-    @media(max-width:900px){
-        .container{flex-direction:column;}
-        .left, .right{width:100%;}
-        .left img{width:250px;}
-    }
+.back{
+    margin-top:30px;
+    display:inline-block;
+    padding:10px 20px;
+    border:1px solid white;
+    cursor:pointer;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+    .container{flex-direction:column;}
+    .left, .right{width:100%;}
+    .logo{width:280px;}
+}
 </style>
 </head>
+
 <body>
 
 <div class="container">
+
     <div class="left">
-        <h1>
-            Perkumpulan Marga Lumban Gaol<br>
-            dan Boru di Jakarta dan sekitarnya
+        <img src="logo.png" alt="Logo PMLG" class="logo"/>
+        <h1 class="title">
+            Perkumpulan Marga Lumban Gaol dan Boru<br>
+            di Jakarta dan sekitarnya
         </h1>
-        <img src="logo.png" alt="Logo PMLG"/>
     </div>
 
     <div class="right">
@@ -113,9 +125,9 @@
         <div class="menu" onclick="openPage('kegiatan')">Informasi dan Kegiatan</div>
         <div class="menu" onclick="openPage('kontak')">Kontak & Apresiasi</div>
     </div>
+
 </div>
 
-<!-- HALAMAN ISI -->
 <div id="content" class="content">
     <h2 id="title"></h2>
     <div id="isi"></div>
